@@ -1,0 +1,51 @@
+package postgres
+
+import (
+	"github.com/Nortriptyline/Eirene/domain"
+	"github.com/Nortriptyline/Eirene/infrastructure/persistence/mappers"
+	"github.com/google/uuid"
+	"gorm.io/gorm"
+)
+
+type UserRepository struct {
+	db *gorm.DB
+}
+
+func NewUserRepository(db *gorm.DB) *UserRepository {
+	return &UserRepository{db: db}
+}
+
+func (r *UserRepository) Save(user *domain.User) (*domain.User, error) {
+	uModel := mappers.ToNewUserModel(user)
+	err := r.db.Create(uModel).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return mappers.ToUserDomain(uModel), nil
+}
+
+func (r *UserRepository) FindByToken(user *domain.User) (*domain.User, error) {
+	uModel := mappers.ToUserModel(user)
+
+	if err := r.db.Where("client_token = ?", uModel.ClientToken).First(uModel).Error; err != nil {
+		return user, err
+	}
+
+	return mappers.ToUserDomain(uModel), nil
+}
+
+func (r *UserRepository) FindByID(id uuid.UUID) (*domain.User, error) {
+	panic("FindByID not implemented")
+	return nil, nil
+}
+func (r *UserRepository) Update(user *domain.User) error {
+	panic("Update not implemented")
+	return nil
+
+}
+func (r *UserRepository) Delete(id uuid.UUID) error {
+	panic("Delete not implemented")
+	return nil
+
+}

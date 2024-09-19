@@ -1,0 +1,21 @@
+with-expecter: true
+packages:
+  # Spécifiez les packages avec les chemins complets où se trouvent vos interfaces
+  github.com/Nortriptyline/Eirene/domain/repository:
+    config:
+      recursive: true
+    interfaces:
+      IQueueRepository: {}
+      IQueueEntryRepository: {}
+      IQueueEntryLogRepository: {}
+      IUserRepository: {}
+  github.com/Nortriptyline/Eirene/domain/eventbus:
+    config:
+      recursive: true
+    interfaces:
+      IEventBus: {}
+  github.com/Nortriptyline/Eirene/infrastructure/logging:
+    config:
+      recursive: true
+    interfaces:
+      ISugaredLogger: {}

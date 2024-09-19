@@ -1,0 +1,26 @@
+package mappers
+
+import (
+	"github.com/Nortriptyline/Eirene/domain"
+	"github.com/Nortriptyline/Eirene/infrastructure/persistence/models"
+)
+
+func ToUserDomain(rm *models.UserModel) *domain.User {
+	return &domain.User{
+		ID:          rm.ID,
+		ClientToken: rm.ClientToken,
+	}
+}
+
+func ToUserModel(r *domain.User) *models.UserModel {
+	return &models.UserModel{
+		ID:          r.ID,
+		ClientToken: r.ClientToken,
+	}
+}
+
+func ToNewUserModel(r *domain.User) *models.UserModel {
+	return &models.UserModel{
+		ClientToken: r.ClientToken,
+	}
+}

@@ -1,0 +1,70 @@
+# Les fichiers binaires compilés
+/bin/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Cache Go
+/pkg/
+**/vendor/
+
+# Modules Go
+go.mod
+go.sum
+
+# Dossiers cache
+/.idea/
+/.vscode/
+/.vscode/settings.json
+/tmp
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.temp
+*.swp
+
+# Fichiers spécifiques aux environnements
+.env
+.env.local
+.env.*.local
+
+# Fichiers spécifiques à l'éditeur
+/.DS_Store
+/.sass-cache
+/.terraform/
+/.venv/
+/node_modules/
+/coverage/
+/*.test
+/.nyc_output
+/.pylint.d/
+/.pytest_cache/
+/.tox/
+/virtualenv/
+/__pycache__/
+/python/.envrc
+/target/
+/bin/Debug/
+/bin/Release/
+
+# Exclure les fichiers générés par GoLand
+/.idea/
+/*.iml
+
+# Fichiers générés par macOS
+.DS_Store
+.Trashes
+
+# Fichiers générés par Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
